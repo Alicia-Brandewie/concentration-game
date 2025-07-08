@@ -16,47 +16,33 @@ let firstCardClicked
     // undefined, so falsey
 let secondCardClicked 
     // undefined, so falsey
-let match
-    //boolean
-let pairsCount
-    // count from 0 to 8
-let triesCountDown
-    //count down from 10
-   // let lose = numberTries > MAXIMUM_TRIES; // is this necessary with let won?
-let won
-   //boolean 
-let message
-    // string
-let playAgain
-    // boolean
+
 
 
 /*----- Cached Element References  -----*/
 
 const cardEls = document.querySelectorAll(".card")
-console.log(cardEls);
+//console.log(cardEls);
 
 /*-------------- Functions -------------*/
 
-// can't add event listner to array, have to loop trhough them; DOM events to loop through node list like this with for each 
-// then add event listener to that function
 
 cardEls.forEach((card) => {
     card.addEventListener("click",(event) => {
-        console.log(event.target.innerText); // place holder, replace with logic 
-        // compare 
-        //add more functions, decisions to make 
-        //first card or second
-        console.log(firstCardClicked); 
-        console.log(secondCardClicked);
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log(firstCardClicked)
         } else {
             secondCardClicked = event.target.innerText;
             console.log(secondCardClicked)
+        };
+        if (firstCardClicked === secondCardClicked) {
+            console.log(event.target.innerText)
+        } else {
+            console.log("Not a Match")
+
         }
-        
+
 
         // if first card, how do store value to compare later
         //if second card, how to compare to first card
