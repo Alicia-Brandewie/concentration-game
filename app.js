@@ -25,6 +25,19 @@ const cardEls = document.querySelectorAll(".card")
 //console.log(cardEls);
 
 /*-------------- Functions -------------*/
+//break check logic out of the below function (that's the win logic);
+const bannana = () => {
+    if (firstCardClicked === secondCardClicked) {
+            console.log(event.target.innerText)
+            //add what happens for user
+        } else {
+            console.log("Not a Match")
+
+        }
+        firstCardClicked = undefined
+        secondCardClicked = undefined // this is resetting 
+}
+//this got the matched pairs to work
 
 
 cardEls.forEach((card) => {
@@ -35,28 +48,28 @@ cardEls.forEach((card) => {
         } else {
             secondCardClicked = event.target.innerText;
             console.log(secondCardClicked)
+            bannana();
         };
-        if (firstCardClicked === secondCardClicked) {
-            console.log(event.target.innerText)
-        } else {
-            console.log("Not a Match")
-
-        }
+        
 
 
         // if first card, how do store value to compare later
         //if second card, how to compare to first card
         //what to do if they do match
         //what to do if they don't match 
+
+        //GLEN recommendation: calculaor homework, how we saved variables in the math 
     });
 });
 
 
-
+//NEXT: 1- count down tries, 2- track pairs (addition logic), 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
+// 
+//lots of conditionals 
 
 /*----------- Event Listeners ----------*/
 
-
+//moved up into function section
 
 
 
