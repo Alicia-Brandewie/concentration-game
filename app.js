@@ -27,7 +27,8 @@ let tries = 0
 const cardEls = document.querySelectorAll(".card")
 //console.log(cardEls);
 
-const triesElement = document.querySelector("#visual-count-tries")
+const triesElement = document.querySelector("#visual-count-tries") 
+//can't have spaces in id name, so "#visual count tries" caused a null error because computer was looking at three seperate ids
 
 /*-------------- Functions -------------*/
 //break check logic out of the below function (that's the win logic);
@@ -63,6 +64,24 @@ const checkforMatch = () => {
 });
 
 
+// COUNTING PAIRS
+
+//WHEN firstCardClicked = secondCardClicked THEN pairs count increments up
+    // user visual: cards 'disapear'
+// OTHERWISE pairs count does not change
+    // user visual: card 'flips back over'
+
+
+
+//GLENN NEXT STEPS: 2- track pairs (addition logic), 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
+// 
+//lots of conditionals 
+
+
+
+
+
+// HOKAY this ↓ is part of the win/loose logic, so for last....
 let countTries = () =>{
     if (tries === 10){ //but how to handle when (tries === 16 &&& pairs === 8)
         // if (tries === 16 && pairs > 8 THEN lose function) etc 
@@ -71,31 +90,7 @@ let countTries = () =>{
         console.log("Keep going")
     }
 };
-countTries() // HOKAY defining this function & invoking it resulted in 
-//the initiation of the page printing "Keep going"
-//HOW DO I get line 42 to record the tries and compare it in apple()
-
-// IT"S COUNTING CLICK EVENTS, SO I NEED.....
-// SEE DOM fundimentals https://generalassembly.instructure.com/courses/821/pages/dom-events-video?module_item_id=75306
-// also referencing https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
-    //for how to count clicks
-// and https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305 
-    //for the updating the DOM 
-
-
-
-
-
-
-
-//GLENN NEXT STEPS: 1- track pairs (addition logic) (this is victory for tonight), 2- count down tries & 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
-// 
-//lots of conditionals 
-
-
-
-
-
+countTries() 
 
 
 

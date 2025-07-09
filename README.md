@@ -59,6 +59,25 @@ cardEls.forEach((card) => {
 ### Help from Glenn on the tries count
 tries++ autoincriments 
 
+plus referenced:
+    https://generalassembly.instructure.com/courses/821/pages/dom-events-video?module_item_id=75306
+
+    and
+    https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
+    for how to count clicks
+
+    and 
+    https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305 
+    for the updating the DOM 
+
+plus debugging help from Ashley for syntax errors then POOF it worked
+
+
+
+
+
+
+
 
 ### Boundless thanks to Chris Kellogg
 the most patient API/backend Architect; the Link to my Navi  
