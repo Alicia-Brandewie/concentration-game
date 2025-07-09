@@ -56,6 +56,9 @@ cardEls.forEach((card) => {
         };
         
 
+### Help from Glenn on the tries count
+tries++ autoincriments 
+
 
 ### Boundless thanks to Chris Kellogg
-the most patient API/backend Architect  
+the most patient API/backend Architect; the Link to my Navi  

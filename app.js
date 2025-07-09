@@ -7,7 +7,7 @@ const CARDS =
 
 const WINNING_PAIRS = 8;
     
-const MAXIMUM_TRIES = 10
+const MAXIMUM_TRIES = 16
 
 /*---------- Variables (state) ---------*/
 let board
@@ -17,7 +17,9 @@ let firstCardClicked
 let secondCardClicked 
     // undefined, so falsey
 
+let pairsCount = 0
 
+let tries = 0
 
 /*----- Cached Element References  -----*/
 
@@ -29,16 +31,18 @@ const cardEls = document.querySelectorAll(".card")
 const bannana = () => {
     if (firstCardClicked === secondCardClicked) {
             console.log(event.target.innerText)
-            //add what happens for user
+            //add logic & add what happens for user
+                //(this?)return pairsCount++
         } else {
             console.log("Not a Match")
-
+          //add logic & add what happens for user
         }
-        firstCardClicked = undefined
+        firstCardClicked = undefined // this is resetting 
         secondCardClicked = undefined // this is resetting 
-}
-//this got the matched pairs to work
-
+        tries++ //autoincrements them
+        //NEXT: if tries === (logic)/conditionals, decided where to put this 
+            //see line 67
+    };
 
 cardEls.forEach((card) => {
     card.addEventListener("click",(event) => {
@@ -53,19 +57,58 @@ cardEls.forEach((card) => {
         
 
 
-        // if first card, how do store value to compare later
-        //if second card, how to compare to first card
-        //what to do if they do match
-        //what to do if they don't match 
+
 
         //GLEN recommendation: calculaor homework, how we saved variables in the math 
     });
 });
 
 
-//NEXT: 1- count down tries, 2- track pairs (addition logic), 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
+let apple = () =>{
+    if (tries === 16){ //but how to handle when (tries === 16 &&& pairs === 8)
+        console.log("Lost--try again!")
+    } else {
+        console.log("Keep going")
+    }
+};
+apple() // HOKAY defining this function & invoking it resulted in 
+//the initiation of the page printing "Keep going"
+//HOW DO I get line 42 to record the tries and compare it in apple()
+
+//GLENN NEXT STEPS: 1- track pairs (addition logic) (this is victory for tonight), 2- count down tries & 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
 // 
 //lots of conditionals 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*----------- Event Listeners ----------*/
 
