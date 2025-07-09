@@ -30,16 +30,18 @@ const cardEls = document.querySelectorAll(".card")
 const triesElement = document.querySelector("#visual-count-tries") 
 //can't have spaces in id name, so "#visual count tries" caused a null error because computer was looking at three seperate ids
 
+const pairsElement = document.querySelector("#visual-count-pairs")
 /*-------------- Functions -------------*/
 //break check logic out of the below function (that's the win logic);
 const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
-            console.log("Match!")
-            //add logic & add what happens for user
             pairs++ // does this work?
+            pairsElement.textContent = "Pairs: " + pairs;
+            console.log("Match!")
+            //update visual change for user
         } else {
             console.log("Not a Match")
-          //add logic & add what happens for user
+          //update visual change for user
         }
         firstCardClicked = undefined // this is resetting 
         secondCardClicked = undefined // this is resetting 
@@ -70,6 +72,24 @@ const checkforMatch = () => {
     // user visual: cards 'disapear'
 // OTHERWISE pairs count does not change
     // user visual: card 'flips back over'
+
+
+
+// Didn't need this ↓ because placed the logic inside of the match function 
+// const countPairs = () => {
+//     if (firstCardClicked === secondCardClicked) {
+//         pairs++
+//         console.log ("Pair!")
+//     } else {
+//         console.log("Nope, try again.")
+//     }
+
+
+
+// };
+
+
+
 
 
 
