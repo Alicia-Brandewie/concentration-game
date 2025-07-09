@@ -66,34 +66,27 @@ const checkforMatch = () => {
 });
 
 
-// COUNTING PAIRS
-
+// HOW TO FLIP CARDS
+// using this tutorial https://dev.to/mugas/flip-cards-with-javascript-2ad0
+    // and found the cursor here https://github.com/mugas/Movie-hero/commit/88af22692ea09d10aad00e5600fe9c479d1876ab#diff-b78be019f1dc6d57753ea900c3805b114cd53ab7c0db836cc081836df1b99b7aR26-R70
 //WHEN firstCardClicked = secondCardClicked THEN pairs count increments up
     // user visual: cards 'disapear'
 // OTHERWISE pairs count does not change
     // user visual: card 'flips back over'
 
 
-
-// Didn't need this ↓ because placed the logic inside of the match function 
-// const countPairs = () => {
-//     if (firstCardClicked === secondCardClicked) {
-//         pairs++
-//         console.log ("Pair!")
-//     } else {
-//         console.log("Nope, try again.")
-//     }
-
-
-
-// };
+const flipCard = (event) =>{ // "event" from Ben
+    event.target.classList.toggle("flip"); // BEN: can't use this here...don't know 'this' yet, so pass the function through as a paremeter 
+    //toggle 
+}
+cardEls.forEach((card) =>card.addEventListener("click", flipCard))
+//already have an event listener for card/s...
+//try adding new classes card-front & card-back
+//then making this function
 
 
 
-
-
-
-//GLENN NEXT STEPS: 2- track pairs (addition logic), 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
+//GLENN NEXT STEPS: 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
 // 
 //lots of conditionals 
 
