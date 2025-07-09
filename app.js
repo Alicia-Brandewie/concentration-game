@@ -7,7 +7,8 @@ const CARDS =
 
 const WINNING_PAIRS = 8;
     
-const MAXIMUM_TRIES = 16
+const MAXIMUM_TRIES = 10
+
 
 /*---------- Variables (state) ---------*/
 let board
@@ -17,7 +18,7 @@ let firstCardClicked
 let secondCardClicked 
     // undefined, so falsey
 
-let pairsCount = 0
+let pairs = 0
 
 let tries = 0
 
@@ -26,13 +27,15 @@ let tries = 0
 const cardEls = document.querySelectorAll(".card")
 //console.log(cardEls);
 
+const triesElement = document.querySelector("#visual-count-tries")
+
 /*-------------- Functions -------------*/
 //break check logic out of the below function (that's the win logic);
-const bannana = () => {
+const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
-            console.log(event.target.innerText)
+            console.log("Match!")
             //add logic & add what happens for user
-                //(this?)return pairsCount++
+            pairs++ // does this work?
         } else {
             console.log("Not a Match")
           //add logic & add what happens for user
@@ -40,40 +43,50 @@ const bannana = () => {
         firstCardClicked = undefined // this is resetting 
         secondCardClicked = undefined // this is resetting 
         tries++ //autoincrements them
+        triesElement.textContent = "Tries: " + tries;//add countTries here?
+                console.log(triesElement.textContent)
         //NEXT: if tries === (logic)/conditionals, decided where to put this 
             //see line 67
     };
 
-cardEls.forEach((card) => {
-    card.addEventListener("click",(event) => {
-        if (firstCardClicked === undefined) {
-            firstCardClicked = event.target.innerText;
-            console.log(firstCardClicked)
-        } else {
-            secondCardClicked = event.target.innerText;
-            console.log(secondCardClicked)
-            bannana();
-        };
-        
-
-
-
-
-        //GLEN recommendation: calculaor homework, how we saved variables in the math 
+    cardEls.forEach((card) => {
+        card.addEventListener("click",(event) => {
+            if (firstCardClicked === undefined) {
+                firstCardClicked = event.target.innerText;
+                console.log("first card clicked " + firstCardClicked)
+            } else {
+                secondCardClicked = event.target.innerText;
+                console.log("second card clicked " + secondCardClicked)
+                checkforMatch();
+            };//GLEN recommendation: calculaor homework, how we saved variables in the math 
     });
 });
 
 
-let apple = () =>{
-    if (tries === 16){ //but how to handle when (tries === 16 &&& pairs === 8)
+let countTries = () =>{
+    if (tries === 10){ //but how to handle when (tries === 16 &&& pairs === 8)
+        // if (tries === 16 && pairs > 8 THEN lose function) etc 
         console.log("Lost--try again!")
     } else {
         console.log("Keep going")
     }
 };
-apple() // HOKAY defining this function & invoking it resulted in 
+countTries() // HOKAY defining this function & invoking it resulted in 
 //the initiation of the page printing "Keep going"
 //HOW DO I get line 42 to record the tries and compare it in apple()
+
+// IT"S COUNTING CLICK EVENTS, SO I NEED.....
+// SEE DOM fundimentals https://generalassembly.instructure.com/courses/821/pages/dom-events-video?module_item_id=75306
+// also referencing https://developer.mozilla.org/en-US/docs/Web/API/Element/click_event
+    //for how to count clicks
+// and https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305 
+    //for the updating the DOM 
+
+
+
+
+
+
 
 //GLENN NEXT STEPS: 1- track pairs (addition logic) (this is victory for tonight), 2- count down tries & 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
 // 
