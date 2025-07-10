@@ -1,21 +1,21 @@
 /*-------------- Constants -------------*/
-const CARDS =
-[0, 1,  2,  3,
- 4, 5,  6,  7,
- 8, 9, 10, 11,
-12, 13, 14, 15]
+let CARDS =
+    ["♡", "♡", "♥", "♥",
+        "❀", "❀", "✿", "✿",
+        "✧", "✧", "✦", "✦",
+        "🌣", "🌣", "☀", "☀"]
 
-const coversArray = [
-    "A", "B", "C", "D",
-    "E", "F", "G", "H",
-    "I", "J", "K", "L",
-    "M", "N", "O", "P"  
-]
+// const coversArray = [
+//     "A", "B", "C", "D",
+//     "E", "F", "G", "H",
+//     "I", "J", "K", "L",
+//     "M", "N", "O", "P"  
+// ]
 
 
 
 const WINNING_PAIRS = 8;
-    
+
 const MAXIMUM_TRIES = 10
 
 
@@ -25,9 +25,9 @@ let cards1
 let board
 
 let firstCardClicked
-    // undefined, so falsey
-let secondCardClicked 
-    // undefined, so falsey
+// undefined, so falsey
+let secondCardClicked
+// undefined, so falsey
 
 let pairs = 0
 
@@ -40,7 +40,7 @@ const boardElement = document.querySelector(".board")
 const cardEls = document.querySelectorAll(".card")
 //console.log(cardEls);
 
-const triesElement = document.querySelector("#visual-count-tries") 
+const triesElement = document.querySelector("#visual-count-tries")
 //can't have spaces in id name, so "#visual count tries" caused a null error because computer was looking at three seperate ids
 
 const pairsElement = document.querySelector("#visual-count-pairs")
@@ -66,43 +66,61 @@ should display the INNERTEXT of the randomly SHUFFLED cards
 // A function to print an array 
 
 //  CURRENT ISSUE, MAYBE NEED ANOTHER ARRAY????? 
-    //BECAUSE CARDS THE ARRAY'S NUMBERS =/= ID NUMBERS IN THE HTML
-    // const individualCards = document.querySelector(#1, #2, #3...)?
+//BECAUSE CARDS THE ARRAY'S NUMBERS =/= ID NUMBERS IN THE HTML
+// const individualCards = document.querySelector(#1, #2, #3...)?
 
 
-// const randomCardsDisplay = CARDS.map((card) =>{
-//     return cardEls.forEach((card) => {
+//  const randomCardsDisplay = CARDS.map((card) =>{
+//      return cardEls.forEach((card) => {
 //         console.log(shuffleCards);
-//         card.innerText = shuffleCards;
-// })     })
+//          card.innerText = shuffleCards;
+//      })    
+//  })
 
 
- function shuffleCards (CARDS) { 
-            let ans = '';
-            for (let i = 0; i < CARDS.length; i++) {
-            ans += CARDS[i] + " "; 
-            }
-            console.log(ans); 
-        } 
-    // A function to generate a random 
-    // permutation of arr
-        function randomize (CARDS) {
-        // Start from the last element and swap 
-        // one by one. We don't need to run for 
-        // the first element that's why i > 0 
-            for (let i = CARDS.length - 1; i > 0; i--) {
-            // Pick a random index from 0 to i inclusive
-                let j = Math.floor(Math.random() * (i + 1)); 
-            // Swap arr[i] with the element 
-            // at random index 
-                [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
-            } 
-        } // This code is contributed by rohitsingh07052.
+// const randomCardsDisplay = cardEls.map((card) => {
+//     return shuffleCards(cards)
+//     console.log(shuffleCards(cards))
+// })
 
-   
+//if it's in the console right, matter of getting to show up in DOM, 
+//innerTEXT is the way to do that
+//....need to loop over something, map to it, innertext
+
+
+
+
+// });
+console.log(cardEls)
+
+let ans = ''; //taking this out of the function means it exists globally
+//RANDOMIZATION OF ARRAY WORKS
+function shuffleCards(CARDS) {
+
+    for (let i = 0; i < CARDS.length; i++) {
+        ans += CARDS[i];
+    }
+    console.log(ans);
+}
+// A function to generate a random 
+// permutation of arr
+function randomize(CARDS) {
+    // Start from the last element and swap 
+    // one by one. We don't need to run for 
+    // the first element that's why i > 0 
+    for (let i = CARDS.length - 1; i > 0; i--) {
+        // Pick a random index from 0 to i inclusive
+        let j = Math.floor(Math.random() * (i + 1));
+        // Swap arr[i] with the element 
+        // at random index 
+        [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
+    }
+} // This code is contributed by rohitsingh07052.
+
+
 // Driver Code
-    randomize (CARDS); 
-    shuffleCards(CARDS);
+randomize(CARDS);
+shuffleCards(CARDS);
 
 // const randomPairs = coversArray.map((coversArray, CARDS) => // use MAP to change an array
 //     ({coversArray, CARDS: cards1[CARDS]
@@ -110,48 +128,53 @@ should display the INNERTEXT of the randomly SHUFFLED cards
 //         console.log(randomPairs)
 
 
-
+cardEls.forEach((card, idx) => {
+    CARDS = Array.from(ans) 
+    card.textContent = CARDS[idx]
+    if(idx === 0){console.dir(Array.from(ans))}
+})
 
 //break check logic out of the below function (that's the win logic);
 const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
-            pairs++ // does this work?
-            pairsElement.textContent = "Pairs: " + pairs;
-            console.log("Match!")
-            //update visual change for user
-        } else {
-            console.log("Not a Match")
-          //update visual change for user
-        }
-        firstCardClicked = undefined // this is resetting 
-        secondCardClicked = undefined // this is resetting 
-        tries++ //autoincrements them
-        triesElement.textContent = "Tries: " + tries;//add countTries here?
-                console.log(triesElement.textContent)
-        //NEXT: if tries === (logic)/conditionals, decided where to put this 
-            //see line 67
-    };
+        pairs++ // does this work?
+        pairsElement.textContent = "Pairs: " + pairs;
+        console.log("Match!")
+        //update visual change for user
+    } else {
+        console.log("Not a Match")
+        //update visual change for user
+    }
+    firstCardClicked = undefined // this is resetting 
+    secondCardClicked = undefined // this is resetting 
+    tries++ //autoincrements them
+    triesElement.textContent = "Tries: " + tries;//add countTries here?
+    console.log(triesElement.textContent)
+    //NEXT: if tries === (logic)/conditionals, decided where to put this 
+    //see line 67
+};
 
-    cardEls.forEach((card) => {
-        card.addEventListener("click",(event) => {
-            if (firstCardClicked === undefined) {
-                firstCardClicked = event.target.innerText;
-                console.log("first card clicked " + firstCardClicked)
-            } else {
-                secondCardClicked = event.target.innerText;
-                console.log("second card clicked " + secondCardClicked)
-                checkforMatch();
-            };//GLEN recommendation: calculaor homework, how we saved variables in the math 
-            //console.log(event.target)//event.target = specific thing you're clicking; target is the div of the event you're clicking over
-            const cardFlip = event.target.classList.toggle("↷"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
-            event.target.innerText = "↷"
-            //this turns cards from "face up" to "face down"
-            //so need to change initial state = cards 'face down'
-            //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
-        });
+cardEls.forEach((card) => {
+    card.addEventListener("click", (event) => {
+        if (firstCardClicked === undefined) {
+            firstCardClicked = event.target.innerText;
+            console.log("first card clicked " + firstCardClicked)
+        } else {
+            secondCardClicked = event.target.innerText;
+            console.log("second card clicked " + secondCardClicked)
+            checkforMatch();
+        };//GLEN recommendation: calculaor homework, how we saved variables in the math 
+        //console.log(event.target)//event.target = specific thing you're clicking; target is the div of the event you're clicking over
+        const cardFlip = event.target.classList.toggle("↷"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+        // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
+        event.target.innerText = "↷"
+        //this turns cards from "face up" to "face down"
+        //so need to change initial state = cards 'face down'
+        //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
+    });
 });
 
-const resetGame = () =>{
+const resetGame = () => {
     firstCardClicked === undefined
     secondCardClicked === undefined
     pairs = 0
@@ -165,16 +188,16 @@ const resetGame = () =>{
 
 // SHUFFLING CARDS
 //randomizer logic from rock-paper-scissors?
-    //https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+//https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
 // and MDN docs math.random() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 //as well as googled for "shuffle deck of cards javascript"
-    //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
-    //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+//https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
+//https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
 
 
 
 //[reset button]
-    // reset button styling https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+// reset button styling https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
 
 
 
