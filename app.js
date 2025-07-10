@@ -62,43 +62,36 @@ const checkforMatch = () => {
                 console.log("second card clicked " + secondCardClicked)
                 checkforMatch();
             };//GLEN recommendation: calculaor homework, how we saved variables in the math 
-            console.log(event.target)//event.target = specific thing you're clicking; target is the div of the event you're clicking over
-            const cardFlip = event.target.classList.toggle("♻"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
-            event.target.innerText = "♻"
+            //console.log(event.target)//event.target = specific thing you're clicking; target is the div of the event you're clicking over
+            const cardFlip = event.target.classList.toggle("↷"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+            event.target.innerText = "↷"
+            //this turns cards from "face up" to "face down"
+            //so need to change initial state = cards 'face down'
+            //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
         });
 });
 
 
-// HOW TO FLIP CARDS
-// using this tutorial https://dev.to/mugas/flip-cards-with-javascript-2ad0
-    // and found the cursor here https://github.com/mugas/Movie-hero/commit/88af22692ea09d10aad00e5600fe9c479d1876ab#diff-b78be019f1dc6d57753ea900c3805b114cd53ab7c0db836cc081836df1b99b7aR26-R70
-//WHEN firstCardClicked = secondCardClicked THEN pairs count increments up
-    // user visual: cards 'disapear'
-// OTHERWISE pairs count does not change
-    // user visual: card 'flips back over'
-//The tutorial version is a STRETCH GOAL cause it's fancy 3D;
-    //the toggle function by itself will work fine,
-    // it will 'toggle on' a different image and 'toggle' off
-    //within the function that already exists 
 
+// SHUFFLING CARDS
+//randomizer logic from rock-paper-scissors?
+    //https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+// and MDN docs math.random() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+//as well as googled for "shuffle deck of cards javascript"
+    //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
+    //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
 
-// const flipCard = (event) =>{ // "event" from Ben
-//     event.target.classList.toggle("flip"); // BEN: can't use this here...don't know 'this' yet, so pass the function through as a paremeter 
-//     //toggle 
-// }
-// cardEls.forEach((card) =>card.addEventListener("click", flipCard))
-//already have an event listener for card/s...
-//try adding new classes card-front & card-back
-//then making this function
+let shuffleCards = () => {
+    const banana = Math.floor(Math.random() * CARDS.length);
+    shuffledCards = CARDS[banana]
+    console.log(banana)
+} 
 
 
 
-
-
-
-
-
-//GLENN NEXT STEPS: 3 how to flip cards (that'll take a day-day.5), 4- shuffling cards, 5-THEN win logic 
+//GLENN NEXT STEPS: [reset button],  5-THEN win logic 
+    // reset button styling https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+//then fixes & edge cases (click the same card after it's matched?)
 // 
 //lots of conditionals 
 
