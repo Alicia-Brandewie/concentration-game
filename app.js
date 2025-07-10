@@ -5,19 +5,9 @@ let CARDS =
         "✧", "✧", "✦", "✦",
         "🌣", "🌣", "☀", "☀"]
 
-// const coversArray = [
-//     "A", "B", "C", "D",
-//     "E", "F", "G", "H",
-//     "I", "J", "K", "L",
-//     "M", "N", "O", "P"  
-// ]
-
-
-
 const WINNING_PAIRS = 8;
 
 const MAXIMUM_TRIES = 10
-
 
 /*---------- Variables (state) ---------*/
 let cards1
@@ -25,9 +15,8 @@ let cards1
 let board
 
 let firstCardClicked
-// undefined, so falsey
+
 let secondCardClicked
-// undefined, so falsey
 
 let pairs = 0
 
@@ -38,59 +27,14 @@ let tries = 0
 const boardElement = document.querySelector(".board")
 
 const cardEls = document.querySelectorAll(".card")
-//console.log(cardEls);
 
 const triesElement = document.querySelector("#visual-count-tries")
-//can't have spaces in id name, so "#visual count tries" caused a null error because computer was looking at three seperate ids
 
 const pairsElement = document.querySelector("#visual-count-pairs")
 
 
-//const document.querySelector('#resetButton').addEventListener('click', resetGame);
-
 /*-------------- Functions -------------*/
 
-/*
-When user INITIALLY lands on page
-should display the INNERTEXT of the randomly SHUFFLED cards
-*/
-
-// const initialBoardDisplay = () => {
-//     cardEls.forEach((card) => { // THIS changes the initial display of the cards
-//         card.innerText = ("&")
-//         console.log("Card shuffle, shuffle")
-//     }    
-// )}
-// initialBoardDisplay()
-
-// A function to print an array 
-
-//  CURRENT ISSUE, MAYBE NEED ANOTHER ARRAY????? 
-//BECAUSE CARDS THE ARRAY'S NUMBERS =/= ID NUMBERS IN THE HTML
-// const individualCards = document.querySelector(#1, #2, #3...)?
-
-
-//  const randomCardsDisplay = CARDS.map((card) =>{
-//      return cardEls.forEach((card) => {
-//         console.log(shuffleCards);
-//          card.innerText = shuffleCards;
-//      })    
-//  })
-
-
-// const randomCardsDisplay = cardEls.map((card) => {
-//     return shuffleCards(cards)
-//     console.log(shuffleCards(cards))
-// })
-
-//if it's in the console right, matter of getting to show up in DOM, 
-//innerTEXT is the way to do that
-//....need to loop over something, map to it, innertext
-
-
-
-
-// });
 console.log(cardEls)
 
 let ans = ''; //taking this out of the function means it exists globally
@@ -98,7 +42,7 @@ let ans = ''; //taking this out of the function means it exists globally
 function shuffleCards(CARDS) {
 
     for (let i = 0; i < CARDS.length; i++) {
-        ans += CARDS[i];
+        ans += CARDS[i]; // original version of this had a + " ";, which was adding spaces between the unicode characters & leaving every-other circle blank, removed it and things worked
     }
     console.log(ans);
 }
@@ -116,23 +60,19 @@ function randomize(CARDS) {
         [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
     }
 } // This code is contributed by rohitsingh07052.
-
-
 // Driver Code
 randomize(CARDS);
 shuffleCards(CARDS);
 
-// const randomPairs = coversArray.map((coversArray, CARDS) => // use MAP to change an array
-//     ({coversArray, CARDS: cards1[CARDS]
-//     }));
-//         console.log(randomPairs)
 
+cardEls.forEach((card, banana) => {
+    CARDS = Array.from(ans) // array.from makes a string into an array 
+    card.textContent = CARDS[banana]
+    if(banana === 0){console.dir(Array.from(ans))}
+}) // this function is from working with Devin
+        // console.dir makes the whole object visible, like a directory
+            //vs .log which is just the array
 
-cardEls.forEach((card, idx) => {
-    CARDS = Array.from(ans) 
-    card.textContent = CARDS[idx]
-    if(idx === 0){console.dir(Array.from(ans))}
-})
 
 //break check logic out of the below function (that's the win logic);
 const checkforMatch = () => {
@@ -174,30 +114,26 @@ cardEls.forEach((card) => {
     });
 });
 
-const resetGame = () => {
-    firstCardClicked === undefined
-    secondCardClicked === undefined
-    pairs = 0
-    tries = 0
-}
-
 
 
 /*-------------- Workspace -------------*/
 
-
-// SHUFFLING CARDS
-//randomizer logic from rock-paper-scissors?
-//https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
-// and MDN docs math.random() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-//as well as googled for "shuffle deck of cards javascript"
-//https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
-//https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
-
-
-
 //[reset button]
 // reset button styling https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+
+const resetButtonElement =document.querySelector('#resetButton')
+   // console.log(resetButtonElement) // checks out
+
+const resetGame = () => {
+    firstCardClicked = undefined
+    secondCardClicked = undefined
+    pairs = 0
+    tries = 0
+}
+resetButtonElement.addEventListener('click', (event) => {
+    resetGame(event)
+    console.log("reset button clicked")
+});
 
 
 
@@ -206,36 +142,10 @@ const resetGame = () => {
 
 //GLENN NEXT STEPS: [reset button],  5-THEN win logic 
 //then fixes & edge cases (click the same card after it's matched?)
+    // like an initalize state?
+
 // ASK Orville for "glow feature when a match is made" feature
 //lots of conditionals 
-
-
-
-
-
-// // HOKAY this ↓ is part of the win/loose logic, so for last....
-// let countTries = () =>{
-//     if (tries === 10){ //but how to handle when (tries === 16 &&& pairs === 8)
-//         // if (tries === 16 && pairs > 8 THEN lose function) etc 
-//         console.log("Lost--try again!")
-//     } else {
-//         console.log("Keep going")
-//     }
-// };
-// countTries() 
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

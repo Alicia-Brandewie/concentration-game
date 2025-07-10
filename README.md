@@ -100,7 +100,7 @@ plus debugging help from Ashley for syntax errors then POOF it worked
 //try adding new classes card-front & card-back
 //then making this function
 
-### SHUFFLE CARDS
+### RANDAMIZING CARD ARRAY FOR SHUFFLE CARDS 
 
 //randomizer logic from rock-paper-scissors?
     //https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
@@ -109,7 +109,16 @@ plus debugging help from Ashley for syntax errors then POOF it worked
     //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
     //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
 
+### APPLYING SHUFFLED ARRAY TO USER'S VIEW
+Devin walked me through the peices of the forEach I'd started & taught me array.from
 
+cardEls.forEach((card, banana) => {
+    CARDS = Array.from(ans) // array.from makes a string into an array 
+    card.textContent = CARDS[banana]
+    if(banana === 0){console.dir(Array.from(ans))}
+}) // this function is from working with Devin
+        // console.dir makes the whole object visible, like a directory
+            //vs .log which is just the array
 
 
 ### Boundless thanks to Chris Kellogg
