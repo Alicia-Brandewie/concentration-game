@@ -21,7 +21,7 @@ let pairs = 0
 let tries = 0
 
 let randomizedSymbols = ''; 
-
+let gameOver = false
 /*----- Cached Element References  -----*/
 
 const cardEls = document.querySelectorAll(".card")
@@ -75,11 +75,13 @@ const checkforMatch = () => {
     triesElement.textContent = "Tries: " + tries;
     console.log(triesElement.textContent)
     //NEXT: if tries === (logic)/conditionals, decided where to put this 
-    //see line 67
+endingTheGame()
 };
+//putting endingTheGame here didn't work
 
 cardEls.forEach((card) => {
     card.addEventListener("click", (event) => {
+        if (!gameOver){
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
             console.log("first card clicked " + firstCardClicked)
@@ -93,7 +95,7 @@ cardEls.forEach((card) => {
         event.target.innerText = "↷"
         //so need to change initial state = cards 'face down'
         //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
-    });
+    }});
 });
 
 
@@ -131,16 +133,19 @@ resetButtonElement.addEventListener('click', resetGame);
     // like an initalize state?
 
 const endingTheGame = () =>{
-    if (pairs = 8 && tries <= 10) {
+    console.log(pairs)
+    console.log(tries)
+    if (pairs === 8 && tries <= 10) {
         document.querySelector("#banner-message").textContent = "Winner!"
+        gameOver = true
     console.log("Winner!")
-     } else if (pairs > 8 && tries < 10) {
+     } else if (pairs < 8 && tries === 10) {
          document.querySelector("#banner-message").textcontent = "Lose. Try again!"
-    console.log("Lose. Try again!")
+        gameOver = true
+         console.log("Lose. Try again!")
      } 
      //ADD STOPPING LOGIC HERE?
 }
-endingTheGame()
 
 
 
