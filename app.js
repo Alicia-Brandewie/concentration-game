@@ -81,11 +81,91 @@ const checkforMatch = () => {
     //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
     //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
 
-let shuffleCards = () => {
-    const banana = Math.floor(Math.random() * CARDS.length);
-    shuffledCards = CARDS[banana]
-    console.log(banana)
+// let shuffleCards = () => {
+//     const banana = Math.floor(Math.random() * CARDS.length);
+//     shuffledCards = CARDS[banana]
+//     console.log(banana)
+// } 
+
+
+
+// JavaScript Program to shuffle a given array 
+
+// A function to print an array 
+function shuffleCards (CARDS)
+{ 
+    let ans = '';
+    for (let i = 0; i < CARDS.length; i++)
+    {
+        ans += CARDS[i] + " "; 
+    }
+    console.log(ans); 
 } 
+
+// A function to generate a random 
+// permutation of arr
+function randomize (CARDS) 
+{
+
+    // Start from the last element and swap 
+    // one by one. We don't need to run for 
+    // the first element that's why i > 0 
+    for (let i = CARDS.length - 1; i > 0; i--)
+    {
+    
+        // Pick a random index from 0 to i inclusive
+        let j = Math.floor(Math.random() * (i + 1)); 
+
+        // Swap arr[i] with the element 
+        // at random index 
+        [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
+    } 
+} 
+
+// Driver Code
+randomize (CARDS); 
+printArray(CARDS); 
+
+// This code is contributed by rohitsingh07052.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
