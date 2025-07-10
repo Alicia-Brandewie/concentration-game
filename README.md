@@ -100,6 +100,16 @@ plus debugging help from Ashley for syntax errors then POOF it worked
 //try adding new classes card-front & card-back
 //then making this function
 
+### SHUFFLE CARDS
+
+//randomizer logic from rock-paper-scissors?
+    //https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+// and MDN docs math.random() https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+//as well as googled for "shuffle deck of cards javascript"
+    //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
+    //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+
+
 
 
 ### Boundless thanks to Chris Kellogg
