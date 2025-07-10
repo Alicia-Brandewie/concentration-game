@@ -121,5 +121,12 @@ cardEls.forEach((card, banana) => {
             //vs .log which is just the array
 
 
+### Reset button
+
+// reset button styling https://generalassembly.instructure.com/courses/821/pages/javascript-browser-game-rock-paper-scissors?module_item_id=75307
+ 
+//Devin helped me clean up & understand my 
+    resetButtonElement.addEventListener('click', resetGame);
+
 ### Boundless thanks to Chris Kellogg
 the most patient API/backend Architect; the Link to my Navi  
