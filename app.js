@@ -45,6 +45,7 @@ const triesElement = document.querySelector("#visual-count-tries")
 
 const pairsElement = document.querySelector("#visual-count-pairs")
 
+
 //const document.querySelector('#resetButton').addEventListener('click', resetGame);
 
 /*-------------- Functions -------------*/
@@ -64,11 +65,16 @@ should display the INNERTEXT of the randomly SHUFFLED cards
 
 // A function to print an array 
 
+//  CURRENT ISSUE, MAYBE NEED ANOTHER ARRAY????? 
+    //BECAUSE CARDS THE ARRAY'S NUMBERS =/= ID NUMBERS IN THE HTML
+    // const individualCards = document.querySelector(#1, #2, #3...)?
 
-const randomCards = CARDS.map((card) =>{
-    return cardEls.forEach((card) => {
-        card.innerText = shuffleCards;
-})    
+
+// const randomCardsDisplay = CARDS.map((card) =>{
+//     return cardEls.forEach((card) => {
+//         console.log(shuffleCards);
+//         card.innerText = shuffleCards;
+// })     })
 
 
  function shuffleCards (CARDS) { 
@@ -92,10 +98,11 @@ const randomCards = CARDS.map((card) =>{
                 [CARDS[i], CARDS[j]] = [CARDS[j], CARDS[i]];
             } 
         } // This code is contributed by rohitsingh07052.
+
+   
 // Driver Code
     randomize (CARDS); 
-    printArray(CARDS);
-    })
+    shuffleCards(CARDS);
 
 // const randomPairs = coversArray.map((coversArray, CARDS) => // use MAP to change an array
 //     ({coversArray, CARDS: cards1[CARDS]
