@@ -62,7 +62,10 @@ const checkforMatch = () => {
                 console.log("second card clicked " + secondCardClicked)
                 checkforMatch();
             };//GLEN recommendation: calculaor homework, how we saved variables in the math 
-    });
+            console.log(event.target)//event.target = specific thing you're clicking; target is the div of the event you're clicking over
+            const cardFlip = event.target.classList.toggle("♻"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+            event.target.innerText = "♻"
+        });
 });
 
 
@@ -73,16 +76,25 @@ const checkforMatch = () => {
     // user visual: cards 'disapear'
 // OTHERWISE pairs count does not change
     // user visual: card 'flips back over'
+//The tutorial version is a STRETCH GOAL cause it's fancy 3D;
+    //the toggle function by itself will work fine,
+    // it will 'toggle on' a different image and 'toggle' off
+    //within the function that already exists 
 
 
-const flipCard = (event) =>{ // "event" from Ben
-    event.target.classList.toggle("flip"); // BEN: can't use this here...don't know 'this' yet, so pass the function through as a paremeter 
-    //toggle 
-}
-cardEls.forEach((card) =>card.addEventListener("click", flipCard))
+// const flipCard = (event) =>{ // "event" from Ben
+//     event.target.classList.toggle("flip"); // BEN: can't use this here...don't know 'this' yet, so pass the function through as a paremeter 
+//     //toggle 
+// }
+// cardEls.forEach((card) =>card.addEventListener("click", flipCard))
 //already have an event listener for card/s...
 //try adding new classes card-front & card-back
 //then making this function
+
+
+
+
+
 
 
 
@@ -94,16 +106,16 @@ cardEls.forEach((card) =>card.addEventListener("click", flipCard))
 
 
 
-// HOKAY this ↓ is part of the win/loose logic, so for last....
-let countTries = () =>{
-    if (tries === 10){ //but how to handle when (tries === 16 &&& pairs === 8)
-        // if (tries === 16 && pairs > 8 THEN lose function) etc 
-        console.log("Lost--try again!")
-    } else {
-        console.log("Keep going")
-    }
-};
-countTries() 
+// // HOKAY this ↓ is part of the win/loose logic, so for last....
+// let countTries = () =>{
+//     if (tries === 10){ //but how to handle when (tries === 16 &&& pairs === 8)
+//         // if (tries === 16 && pairs > 8 THEN lose function) etc 
+//         console.log("Lost--try again!")
+//     } else {
+//         console.log("Keep going")
+//     }
+// };
+// countTries() 
 
 
 
