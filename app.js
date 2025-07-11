@@ -26,13 +26,42 @@ let gameOver = false
 
 const cardEls = document.querySelectorAll(".card")
 
+const cardbacksElement = document.querySelectorAll(".back-of-card")
+
 const triesElement = document.querySelector("#visual-count-tries")
 
 const pairsElement = document.querySelector("#visual-count-pairs")
 
 const bannerMessage = document.querySelector("#banner-message")
 
+const symbolsBoard = document.querySelector(".board")
+
+const startBoard = document.querySelector(".start-board")
+
 /*-------------- Functions -------------*/
+
+//TOGGLE HIDDEN CLASS, so start-board is 'on top of ' the other card & click turns it off
+        //randel, 1) work on making the .start-board disappear, then 2) add it on top of shuffled board
+
+
+        //classes are seperated by spaces in HTML, hence no 'space' in nameing things
+
+
+function cardbackFaceUp(cardEls) {
+    cardEls.classList.add.toggle("↷")
+    console.log(cardbacksElement)
+}  
+
+
+
+function cardbackFaceUp() {
+    element = document.getElementsById(".card")
+    element.classList.toggle("mystyle")
+}
+
+//const 
+
+
 
 function shuffleCards(CARDS) {
     for (let i = 0; i < CARDS.length; i++) {
@@ -92,13 +121,19 @@ cardEls.forEach((card) => {
             console.log("second card clicked " + secondCardClicked)
             checkforMatch();
         };
-        const cardFlip = event.target.classList.toggle("↷"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+        const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
         // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
-        event.target.innerText = "↷"
+        event.target.innerText = "+"
         //so need to change initial state = cards 'face down'
         //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
     }});
 });
+
+
+
+
+
+
 
 
 
@@ -116,6 +151,9 @@ const resetGame = () => {
     window.location.reload()
         //to change all the cards to backs up
         //give all cards same class that = the uniform back & toggle that off with every click 
+
+
+
 
 
     // firstCardClicked = undefined
@@ -162,7 +200,7 @@ const endingTheGame = () =>{
 // ASK Orville for "glow feature when a match is made" feature
 //lots of conditionals 
 
-
+//display hidden in css to make cards that are matched "disappear" without changing the board layout
 
 
 

@@ -109,6 +109,9 @@ plus debugging help from Ashley for syntax errors then POOF it worked
     //https://www.geeksforgeeks.org/javascript/javascript-program-to-shuffle-deck-of-cards/
     //https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
 
+
+from sharon for 'flip' https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_class
+
 ### APPLYING SHUFFLED ARRAY TO USER'S VIEW
 Devin walked me through the peices of the forEach I'd started & taught me array.from
 
