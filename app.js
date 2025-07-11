@@ -26,7 +26,7 @@ let gameOver = false
 
 const cardEls = document.querySelectorAll(".card")
 
-const cardbacksElement = document.querySelectorAll(".back-of-card")
+const cardbacksElement = document.querySelectorAll(".cardBack")
 
 const triesElement = document.querySelector("#visual-count-tries")
 
@@ -34,9 +34,8 @@ const pairsElement = document.querySelector("#visual-count-pairs")
 
 const bannerMessage = document.querySelector("#banner-message")
 
-const symbolsBoard = document.querySelector(".board")
+const startBoard = document.querySelector(".board")
 
-const startBoard = document.querySelector(".start-board")
 
 /*-------------- Functions -------------*/
 
@@ -46,18 +45,52 @@ const startBoard = document.querySelector(".start-board")
 
         //classes are seperated by spaces in HTML, hence no 'space' in nameing things
 
+startBoard.addEventListener("click", (event) => {
+ if (event.target.classList.contains('card'))
+    event.target.classList.toggle('hidden')
+    console.log("clicked")
 
-function cardbackFaceUp(cardEls) {
-    cardEls.classList.add.toggle("↷")
-    console.log(cardbacksElement)
-}  
+});
+
+
+//FIRST VERSION WITH RANDALL & included 2 versions of div in HTML
+// startBoard.addEventListener("click", (event) => {
+//     if (event.target.classList.contains("cardBack")) {
+//         //parenthes is boolean so if it exists it is true, no need to check 
+//         cardEls[event.target.id].classList.toggle('hidden')
+//         console.log("cardfront Toggled")   
+               
+//         cardbacksElement[event.target.id].classList.toggle('hidden')
+//                 console.log("cardback Toggled")
+
+//     } else if  (event.target.classList.contains("card")) {
+//         cardbacksElement[event.target.id].classList.toggle('hidden') 
+//         cardEls[event.target.id].classList.toggle('hidden')
+//         console.log("else if Toggled")
+
+//     }
+//     console.log(event.target)
+// }
+// );
 
 
 
-function cardbackFaceUp() {
-    element = document.getElementsById(".card")
-    element.classList.toggle("mystyle")
-}
+     //   function toggelHidden () {}
+
+        //then pass the clickMatch function through it afterwards (so no change to that logic...yet...need to update the click toggle there & what happens after match/not match happened)
+
+
+// function cardbackFaceUp(cardEls) {
+//     cardEls.classList.add.toggle("↷")
+//     console.log(cardbacksElement)
+// }  
+
+
+
+// function cardbackFaceUp() {
+//     element = document.getElementsById(".card")
+//     element.classList.toggle("mystyle")
+// }
 
 //const 
 
@@ -89,7 +122,7 @@ cardEls.forEach((card, banana) => {
             //vs .log which is just the array
 
 
-//break check logic out of the below function (that's the win logic);
+// //break check logic out of the below function (that's the win logic);
 const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
         pairs++ 
@@ -108,26 +141,26 @@ const checkforMatch = () => {
     //NEXT: if tries === (logic)/conditionals, decided where to put this 
 endingTheGame()
 };
-//putting endingTheGame here didn't work
+// //putting endingTheGame here didn't work
 
-cardEls.forEach((card) => {
-    card.addEventListener("click", (event) => {
-        if (!gameOver){
-        if (firstCardClicked === undefined) {
-            firstCardClicked = event.target.innerText;
-            console.log("first card clicked " + firstCardClicked)
-        } else {
-            secondCardClicked = event.target.innerText;
-            console.log("second card clicked " + secondCardClicked)
-            checkforMatch();
-        };
-        const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
-        // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
-        event.target.innerText = "+"
-        //so need to change initial state = cards 'face down'
-        //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
-    }});
-});
+// cardEls.forEach((card) => {
+//     card.addEventListener("click", (event) => {
+//         if (!gameOver){
+//         if (firstCardClicked === undefined) {
+//             firstCardClicked = event.target.innerText;
+//             console.log("first card clicked " + firstCardClicked)
+//         } else {
+//             secondCardClicked = event.target.innerText;
+//             console.log("second card clicked " + secondCardClicked)
+//             checkforMatch();
+//         };
+//         const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+//         // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
+//         event.target.innerText = "+"
+//         //so need to change initial state = cards 'face down'
+//         //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
+//     }});
+// });
 
 
 

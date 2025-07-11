@@ -131,5 +131,9 @@ cardEls.forEach((card, banana) => {
 //Devin helped me clean up & understand my 
     resetButtonElement.addEventListener('click', resetGame);
 
+
+### Oliver & Randallf for board setup 
+    //CSS & HTML hidden, layering over
+
 ### Boundless thanks to Chris Kellogg
 the most patient API/backend Architect; the Link to my Navi  
