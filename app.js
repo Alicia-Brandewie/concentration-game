@@ -30,6 +30,8 @@ const triesElement = document.querySelector("#visual-count-tries")
 
 const pairsElement = document.querySelector("#visual-count-pairs")
 
+const bannerMessage = document.querySelector("#banner-message")
+
 /*-------------- Functions -------------*/
 
 function shuffleCards(CARDS) {
@@ -133,16 +135,17 @@ resetButtonElement.addEventListener('click', resetGame);
     // like an initalize state?
 
 const endingTheGame = () =>{
-    console.log(pairs)
-    console.log(tries)
+  //  console.log(pairs)
+  //  console.log(tries)
+    //console.log(bannerMessage)
     if (pairs === 8 && tries <= 10) {
-        document.querySelector("#banner-message").textContent = "Winner!"
+       bannerMessage.innerText = "You won!"
         gameOver = true
     console.log("Winner!")
      } else if (pairs < 8 && tries === 10) {
-         document.querySelector("#banner-message").textcontent = "Lose. Try again!"
+         bannerMessage.innerText = "Bummer you lost. Try again!"
         gameOver = true
-         console.log("Lose. Try again!")
+         //console.log("Lose. Try again!")
      } 
      //ADD STOPPING LOGIC HERE?
 }
