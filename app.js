@@ -14,13 +14,19 @@ const MAXIMUM_TRIES = 10
 
 let firstCardClicked
 
+let firstCardId
+
 let secondCardClicked
+
+let secondCardId
 
 let pairs = 0
 
 let tries = 0
 
 let randomizedSymbols = ''; 
+
+
 let gameOver = false
 /*----- Cached Element References  -----*/
 
@@ -38,7 +44,7 @@ const startBoard = document.querySelector(".board")
 
 
 /*-------------- Functions -------------*/
-
+console.log(cardEls)
 //TOGGLE HIDDEN CLASS, so start-board is 'on top of ' the other card & click turns it off
         //randel, 1) work on making the .start-board disappear, then 2) add it on top of shuffled board
 
@@ -131,6 +137,8 @@ const checkforMatch = () => {
         //update visual change for user
     } else {
         console.log("Not a Match")
+        cardEls[firstCardId].classList.toggle('hidden') // randall help
+       cardEls[secondCardId].classList.toggle('hidden')
         //update visual change for user
     }
     firstCardClicked = undefined 
@@ -148,9 +156,13 @@ cardEls.forEach((card) => {
         if (!gameOver){
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
+            firstCardId = event.target.id
+            console.log(firstCardId)
             console.log("first card clicked " + firstCardClicked)
         } else {
             secondCardClicked = event.target.innerText;
+            secondCardId = event.target.id
+            console.log(secondCardId)
             console.log("second card clicked " + secondCardClicked)
             checkforMatch();
         };
