@@ -135,5 +135,8 @@ cardEls.forEach((card, banana) => {
 ### Oliver & Randallf for board setup 
     //CSS & HTML hidden, layering over
 
+### Randall for pairs visuals
+    MVP of my MVP
+
 ### Boundless thanks to Chris Kellogg
 the most patient API/backend Architect; the Link to my Navi  

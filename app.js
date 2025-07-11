@@ -11,6 +11,7 @@ const WINNING_PAIRS = 8;
 const MAXIMUM_TRIES = 10
 
 /*---------- Variables (state) ---------*/
+let click = 0
 
 let firstCardClicked
 
@@ -51,12 +52,12 @@ console.log(cardEls)
 
         //classes are seperated by spaces in HTML, hence no 'space' in nameing things
 //This version was all Randall's hel
-startBoard.addEventListener("click", (event) => {
- if (event.target.classList.contains('card'))
-    event.target.classList.toggle('hidden')
-    console.log("clicked")
+// startBoard.addEventListener("click", (event) => {
+//  if (event.target.classList.contains('card'))
+//     event.target.classList.toggle('hidden')
+//     console.log("clicked")
 
-});
+// });
 
 
 //FIRST VERSION WITH RANDALL & included 2 versions of div in HTML
@@ -138,11 +139,12 @@ const checkforMatch = () => {
     } else {
         console.log("Not a Match")
         cardEls[firstCardId].classList.toggle('hidden') // randall help
-       cardEls[secondCardId].classList.toggle('hidden')
+       cardEls[secondCardId].classList.toggle('hidden') 
+       // how do we hold on to this information until the third click?
         //update visual change for user
     }
-    firstCardClicked = undefined 
-    secondCardClicked = undefined 
+    // firstCardClicked = undefined 
+    // secondCardClicked = undefined 
     tries++ 
     triesElement.textContent = "Tries: " + tries;
     console.log(triesElement.textContent)
@@ -153,17 +155,33 @@ endingTheGame()
 
 cardEls.forEach((card) => {
     card.addEventListener("click", (event) => {
+                console.log(click)
+
         if (!gameOver){
+        if (click >2) {click = 0
+        // cardEls[firstCardId].classList.toggle('hidden') // randall help
+        // cardEls[secondCardId].classList.toggle('hidden') 
+        checkforMatch()
+
+        firstCardClicked = undefined 
+        secondCardClicked = undefined
+        }//"guard clause"
+
         if (firstCardClicked === undefined) {
             firstCardClicked = event.target.innerText;
+            
             firstCardId = event.target.id
+            cardEls[firstCardId].classList.toggle('hidden')
+            click++ // Randall's help 
             console.log(firstCardId)
             console.log("first card clicked " + firstCardClicked)
         } else {
             secondCardClicked = event.target.innerText;
             secondCardId = event.target.id
+            cardEls[secondCardId].classList.toggle('hidden')
             console.log(secondCardId)
             console.log("second card clicked " + secondCardClicked)
+            click++
             checkforMatch();
         };
         // const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
