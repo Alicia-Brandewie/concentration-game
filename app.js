@@ -110,15 +110,22 @@ cardEls.forEach((card) => {
 const resetButtonElement =document.querySelector('#resetButton')
    // console.log(resetButtonElement) // checks out
 
+
+
 const resetGame = () => {
-    firstCardClicked = undefined
-    secondCardClicked = undefined
-    pairs = 0
-    pairsElement.textContent = "Pairs: 0"
-    tries = 0
-    triesElement.textContent = "Tries: 0"
-    console.log("reset game has been clicked")
-    bannerMessage.textContent = "Find the 8 matching pairs! You have 10 tries."
+    window.location.reload()
+        //to change all the cards to backs up
+        //give all cards same class that = the uniform back & toggle that off with every click 
+
+
+    // firstCardClicked = undefined
+    // secondCardClicked = undefined
+    // pairs = 0
+    // pairsElement.textContent = "Pairs: 0"
+    // tries = 0
+    // triesElement.textContent = "Tries: 0"
+    // console.log("reset game has been clicked")
+    // bannerMessage.textContent = "Find the 8 matching pairs! You have 10 tries."
     //set the cards 'back' to face down AND shuffle the cards
 }
 resetButtonElement.addEventListener('click', resetGame);
@@ -155,7 +162,6 @@ const endingTheGame = () =>{
 
 // ASK Orville for "glow feature when a match is made" feature
 //lots of conditionals 
-
 
 
 
