@@ -137,7 +137,17 @@ cardEls.forEach((card, banana) => {
 
 ### Randall for pairs visuals
     MVP of my MVP
-    "it was an alley-oop"!
+    "it was an alley-oop
 
 ### Boundless thanks to Chris Kellogg
 the most patient API/backend Architect; the Link to my Navi  
+
+
+
+
+
+
+
+
+
+## next steps
