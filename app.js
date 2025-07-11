@@ -118,8 +118,8 @@ const resetGame = () => {
     tries = 0
     triesElement.textContent = "Tries: 0"
     console.log("reset game has been clicked")
-    //set the cards 'back' to face down
-    //shuffle the cards
+    bannerMessage.textContent = "Find the 8 matching pairs! You have 10 tries."
+    //set the cards 'back' to face down AND shuffle the cards
 }
 resetButtonElement.addEventListener('click', resetGame);
 //WAIT -- I want the reset button to return the board to it's initial state
@@ -130,22 +130,22 @@ resetButtonElement.addEventListener('click', resetGame);
 
 
 
-//GLENN NEXT STEPS: [reset button],  5-THEN win logic 
+//GLENN NEXT STEPS: [reset button],  
 //then fixes & edge cases (click the same card after it's matched?)
     // like an initalize state?
 
 const endingTheGame = () =>{
-    console.log(pairs)
-    console.log(tries)
-    console.log(bannerMessage)
+ //   console.log(pairs)
+   // console.log(tries)
+   // console.log(bannerMessage)
     if (pairs === 8 && tries <= 10) {
-       bannerMessage.innerText = "Winner!"
+       bannerMessage.innerText = "Winner!" //well both innertext and textContent work now *shrug*
         gameOver = true
-    console.log("Winner!")
+    //console.log("Winner!")
      } else if (pairs < 8 && tries === 10) {
-         bannerMessage.innerText = "Lose. Try again!"
+         bannerMessage.textContent = "Lose. Try again!"
         gameOver = true
-         console.log("Lose. Try again!")
+         //console.log("Lose. Try again!")
      } 
      //ADD STOPPING LOGIC HERE?
 }
