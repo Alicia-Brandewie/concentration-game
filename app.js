@@ -135,17 +135,17 @@ resetButtonElement.addEventListener('click', resetGame);
     // like an initalize state?
 
 const endingTheGame = () =>{
-  //  console.log(pairs)
-  //  console.log(tries)
-    //console.log(bannerMessage)
+    console.log(pairs)
+    console.log(tries)
+    console.log(bannerMessage)
     if (pairs === 8 && tries <= 10) {
-       bannerMessage.innerText = "You won!"
+       bannerMessage.innerText = "Winner!"
         gameOver = true
     console.log("Winner!")
      } else if (pairs < 8 && tries === 10) {
-         bannerMessage.innerText = "Bummer you lost. Try again!"
+         bannerMessage.innerText = "Lose. Try again!"
         gameOver = true
-         //console.log("Lose. Try again!")
+         console.log("Lose. Try again!")
      } 
      //ADD STOPPING LOGIC HERE?
 }
