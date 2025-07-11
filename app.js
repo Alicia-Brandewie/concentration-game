@@ -44,7 +44,7 @@ const startBoard = document.querySelector(".board")
 
 
         //classes are seperated by spaces in HTML, hence no 'space' in nameing things
-
+//This version was all Randall's hel
 startBoard.addEventListener("click", (event) => {
  if (event.target.classList.contains('card'))
     event.target.classList.toggle('hidden')
@@ -143,24 +143,24 @@ endingTheGame()
 };
 // //putting endingTheGame here didn't work
 
-// cardEls.forEach((card) => {
-//     card.addEventListener("click", (event) => {
-//         if (!gameOver){
-//         if (firstCardClicked === undefined) {
-//             firstCardClicked = event.target.innerText;
-//             console.log("first card clicked " + firstCardClicked)
-//         } else {
-//             secondCardClicked = event.target.innerText;
-//             console.log("second card clicked " + secondCardClicked)
-//             checkforMatch();
-//         };
-//         const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
-//         // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
-//         event.target.innerText = "+"
-//         //so need to change initial state = cards 'face down'
-//         //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
-//     }});
-// });
+cardEls.forEach((card) => {
+    card.addEventListener("click", (event) => {
+        if (!gameOver){
+        if (firstCardClicked === undefined) {
+            firstCardClicked = event.target.innerText;
+            console.log("first card clicked " + firstCardClicked)
+        } else {
+            secondCardClicked = event.target.innerText;
+            console.log("second card clicked " + secondCardClicked)
+            checkforMatch();
+        };
+        // const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
+        // // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
+        // event.target.innerText = "+"
+        //so need to change initial state = cards 'face down'
+        //and add flip logic to what happens when two cards are selected (stay flipped over? Stretch goal = dissapear) above in the match/not a match function (flip back over)
+    }});
+});
 
 
 
