@@ -131,8 +131,7 @@ const resetGame = () => {
 resetButtonElement.addEventListener('click', resetGame);
 //WAIT -- I want the reset button to return the board to it's initial state
     //so I need an initial state to begin with....?
-
-
+        //make the button pretty https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
 
 
 
