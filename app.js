@@ -158,7 +158,7 @@ cardEls.forEach((card) => {
                 console.log(click)
 
         if (!gameOver){
-        if (click >2) {click = 0
+        if (click >1) {click = 0
         // cardEls[firstCardId].classList.toggle('hidden') // randall help
         // cardEls[secondCardId].classList.toggle('hidden') 
         checkforMatch()
@@ -182,7 +182,7 @@ cardEls.forEach((card) => {
             console.log(secondCardId)
             console.log("second card clicked " + secondCardClicked)
             click++
-            checkforMatch();
+            // checkforMatch();
         };
         // const cardFlip = event.target.classList.toggle("+", "mystyle"); // .classlist gives a classlist of all things that belong to that, so targeting this classlist and want you [computer] to run this function
         // // toggle is in the INTRO TO THE DOM, ELEMENT ATTRIBUTES, https://generalassembly.instructure.com/courses/821/pages/intro-to-the-dom?module_item_id=75305
