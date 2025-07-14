@@ -58,7 +58,7 @@ shuffleCards(CARDS);
 cardEls.forEach((card, banana) => {
     CARDS = Array.from(randomizedSymbols)  
     card.textContent = CARDS[banana]
-    if (banana === 0) 
+//    if (banana === 0) 
        // {console.dir(Array.from(randomizedSymbols))}
 
 const checkforMatch = () => {
@@ -66,10 +66,6 @@ const checkforMatch = () => {
         pairs++
         pairsElement.textContent = "Pairs: " + pairs;
        // console.log("Match!")
-        cardEls[firstCardId].classList.toggle('hidden')
-        cardEls[secondCardId].classList.toggle('hidden')
-
-        /////////////////////
 
     } else {
       //  console.log("Not a Match")
