@@ -1,9 +1,10 @@
 /*-------------- Constants -------------*/
-let CARDS =
-    ["♡", "♡", "♥", "♥",
+let CARDS = [
+    "♡", "♡", "♥", "♥",
     "❀", "❀", "✿", "✿",
     "✧", "✧", "✦", "✦",
-    "🌣", "🌣", "☀", "☀"]
+    "🌣", "🌣", "☀", "☀",
+]
 
 /*---------- Variables (state) ---------*/
 let click = 0
@@ -55,7 +56,7 @@ randomize(CARDS);
 shuffleCards(CARDS);
 
 cardEls.forEach((card, banana) => {
-    CARDS = Array.from(randomizedSymbols)  
+    CARDS = Array.from(randomizedSymbols)
     card.textContent = CARDS[banana]
 });
 
@@ -94,7 +95,7 @@ const checkforMatch = () => {
     }
     tries++
     triesElement.textContent = "Tries: " + tries;
-    
+
     endingTheGame()
 };
 

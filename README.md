@@ -160,3 +160,4 @@ the most patient API/backend enginer; the Link to my Navi
 * Correct edge cases, like clicking the same card after it's matched
 * Make matched cards 'disappear'?
 * Make counters instant rather than on the beginning of the next 'try'
+* Mobile & tablet versions 
