@@ -57,9 +57,10 @@ shuffleCards(CARDS);
 
 cardEls.forEach((card, banana) => {
     CARDS = Array.from(randomizedSymbols)  
-    card.textContent = CARDS[banana]}
-//    if (banana === 0) 
-       // {console.dir(Array.from(randomizedSymbols))}
+    card.textContent = CARDS[banana]
+   // if (banana === 0) 
+    //{console.dir(Array.from(randomizedSymbols))}
+});
 
 const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
@@ -80,7 +81,7 @@ const checkforMatch = () => {
 
 cardEls.forEach((card) => {
     card.addEventListener("click", (event) => {
-        console.log(click)
+       // console.log(click)
 
         if (!gameOver) {
             if (click > 1) {

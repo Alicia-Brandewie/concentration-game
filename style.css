@@ -11,6 +11,25 @@ justify-content: center;
 align-items: center;
 }
 
+.button {
+    font-size: 20px;
+    color: white;
+    background-color: none;
+    border-radius: 12px;
+    background-color: palevioletred;
+    border-color: white;
+}
+
+.button:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
+}
+
+
+.button:active {
+  box-shadow: 0 5px gray;
+  transform: translateY(2px);
+}
+
 .board {
     display: grid;
     grid-template-rows:repeat(4,1fr);
@@ -19,7 +38,6 @@ align-items: center;
     height: 600px;
     gap: 10px;
     user-select: none;
-   
 }
 
 .card {
@@ -48,6 +66,9 @@ align-items: center;
 .hidden {
     background-color: white;
 }
+
+.hidden:hover {
+box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);}
 
 
 .cardBack {

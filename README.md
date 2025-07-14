@@ -139,6 +139,11 @@ cardEls.forEach((card, banana) => {
     MVP of my MVP
     "it was an alley-oop
 
+### Button styling
+https://www.w3schools.com/css/css3_buttons.asp
+
+as well as 'card' hover shadows
+
 ### Boundless thanks to Chris Kellogg
 For always being my rubber duckey 
 
