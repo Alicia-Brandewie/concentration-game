@@ -57,7 +57,7 @@ shuffleCards(CARDS);
 
 cardEls.forEach((card, banana) => {
     CARDS = Array.from(randomizedSymbols)  
-    card.textContent = CARDS[banana]
+    card.textContent = CARDS[banana]}
 //    if (banana === 0) 
        // {console.dir(Array.from(randomizedSymbols))}
 
@@ -134,4 +134,3 @@ const endingTheGame = () => {
    //make the reset button pretty https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
     // make matched cards 'disappear'?
 // // ASK Orville for "glow feature when a match is made" feature
-
