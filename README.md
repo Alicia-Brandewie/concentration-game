@@ -140,7 +140,13 @@ cardEls.forEach((card, banana) => {
     "it was an alley-oop
 
 ### Boundless thanks to Chris Kellogg
-the most patient API/backend Architect; the Link to my Navi  
+For always being my rubber duckey 
+
+& suggesting user-select in CSS https://developer.mozilla.org/en-US/docs/Web/CSS/user-select to solve the highlighing-to cheat issue on the MVP
+
+
+&
+the most patient API/backend enginer; the Link to my Navi  
 
 
 

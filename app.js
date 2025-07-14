@@ -23,6 +23,7 @@ let tries = 0
 let randomizedSymbols = '';
 
 let gameOver = false
+
 /*----- Cached Element References  -----*/
 
 const cardEls = document.querySelectorAll(".card")
@@ -37,13 +38,12 @@ const bannerMessage = document.querySelector("#banner-message")
 
 const startBoard = document.querySelector(".board")
 
-
 /*-------------- Functions -------------*/
 function shuffleCards(CARDS) {
     for (let i = 0; i < CARDS.length; i++) {
-        randomizedSymbols += CARDS[i]; // original version of this had a + " ";, which was adding spaces between the unicode characters & leaving every-other circle blank, removed it and things worked
+        randomizedSymbols += CARDS[i];
     }
-    console.log("randomized symbols: " + randomizedSymbols);
+    //console.log("randomized symbols: " + randomizedSymbols);
 }
 
 function randomize(CARDS) {
@@ -56,24 +56,29 @@ randomize(CARDS);
 shuffleCards(CARDS);
 
 cardEls.forEach((card, banana) => {
-    CARDS = Array.from(randomizedSymbols) // array.from makes a string into an array 
+    CARDS = Array.from(randomizedSymbols)  
     card.textContent = CARDS[banana]
-    if (banana === 0) { console.dir(Array.from(randomizedSymbols)) }
-}) // this function is from working with Devin
+    if (banana === 0) 
+       // {console.dir(Array.from(randomizedSymbols))}
 
 const checkforMatch = () => {
     if (firstCardClicked === secondCardClicked) {
         pairs++
         pairsElement.textContent = "Pairs: " + pairs;
-        console.log("Match!")
+       // console.log("Match!")
+        cardEls[firstCardId].classList.toggle('hidden')
+        cardEls[secondCardId].classList.toggle('hidden')
+
+        /////////////////////
+
     } else {
-        console.log("Not a Match")
-        cardEls[firstCardId].classList.toggle('hidden') // randall help
+      //  console.log("Not a Match")
+        cardEls[firstCardId].classList.toggle('hidden')
         cardEls[secondCardId].classList.toggle('hidden')
     }
     tries++
     triesElement.textContent = "Tries: " + tries;
-    console.log(triesElement.textContent)
+  //  console.log(triesElement.textContent)
     endingTheGame()
 };
 
@@ -88,24 +93,23 @@ cardEls.forEach((card) => {
 
                 firstCardClicked = undefined
                 secondCardClicked = undefined
-            }//"guard clause"
+            }
 
             if (firstCardClicked === undefined) {
                 firstCardClicked = event.target.innerText;
 
                 firstCardId = event.target.id
                 cardEls[firstCardId].classList.toggle('hidden')
-                click++ // Randall's help 
-                console.log(firstCardId)
-                console.log("first card clicked " + firstCardClicked)
+                click++
+              //  console.log(firstCardId)
+                //console.log("first card clicked " + firstCardClicked)
             } else {
                 secondCardClicked = event.target.innerText;
                 secondCardId = event.target.id
                 cardEls[secondCardId].classList.toggle('hidden')
-                console.log(secondCardId)
-                console.log("second card clicked " + secondCardClicked)
+               // console.log(secondCardId)
+             //   console.log("second card clicked " + secondCardClicked)
                 click++
-                // checkforMatch();
             };
         }
     });
@@ -121,7 +125,7 @@ resetButtonElement.addEventListener('click', resetGame);
 
 const endingTheGame = () => {
     if (pairs === 8 && tries <= 10) {
-        bannerMessage.innerText = "Winner!" //well both innertext and textContent work now *shrug*
+        bannerMessage.innerText = "Winner!"
         gameOver = true
     } else if (pairs < 8 && tries === 10) {
         bannerMessage.textContent = "Lose. Try again!"
@@ -134,4 +138,4 @@ const endingTheGame = () => {
    //make the reset button pretty https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button
     // make matched cards 'disappear'?
 // // ASK Orville for "glow feature when a match is made" feature
-//lots of conditionals 
+
