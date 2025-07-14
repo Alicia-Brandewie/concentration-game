@@ -150,15 +150,13 @@ For always being my rubber duckey
 & suggesting user-select in CSS https://developer.mozilla.org/en-US/docs/Web/CSS/user-select to solve the highlighing-to cheat issue on the MVP
 
 
+& well, we tried on the 'make matched cards disapear'
+
+
 &
 the most patient API/backend enginer; the Link to my Navi  
 
-
-
-
-
-
-
-
-
 ## next steps
+* Correct edge cases, like clicking the same card after it's matched
+* Make matched cards 'disappear'?
+* Make counters instant rather than on the beginning of the next 'try'
